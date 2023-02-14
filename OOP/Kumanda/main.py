@@ -1,16 +1,49 @@
-# This is a sample Python script.
+class Kumanda():
+    def __init__(self,tvDurum = "Kapalı",tvSes = 0,tvKanal = "TRT",miktar = 0):
+        self.tvDurum = tvDurum
+        self.tvSes = tvSes
+        self.tvKanal = tvKanal
+        self.miktar = miktar
+    def tvAc(self):
+        self.tvDurum = "Açık"
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+    def sesArttir(self):
+        self.miktar = int(input("Sesi ne kadar arttırmak istiyorsun? :  "))
+        if (self.tvSes <= 99):
+            self.tvSes += self.miktar
+            print("Yeni ses seviyesi {}".format(self.tvSes))
+        else:
+            print("Ses seviyesi maximum")
+
+    def sesAzalt(self):
+        self.miktar = int(input("Sesi ne kadar azaltmak istiyorsun? :  "))
+        if (self.tvSes > 0):
+            self.tvSes -= self.miktar
+            print("Yeni ses seviyesi {}".format(self.tvSes))
+        else:
+            print("Ses seviyesi minimum")
+
+kumanda = Kumanda()
+
+while kumanda.tvDurum == "Kapalı":
+    print("TV Kapalı açmak için [1]'e basın")
+    secim = int(input(""))
+    if secim == 1:
+        kumanda.tvAc()
+    else:
+        pass
+
+while kumanda.tvDurum == "Açık":
+    print("[1] Sesi Arttır"
+          "[2] Sesi Azalt"
+          "[3] Kanal Değiştir"
+          "[4] TV'yi Kapat" )
+    secim = int(input(""))
+    if secim == 1:
+        kumanda.sesArttir()
+    elif secim == 2:
+        kumanda.sesAzalt()
+    elif secim == 3:
+        pass
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
