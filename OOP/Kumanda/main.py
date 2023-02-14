@@ -1,5 +1,5 @@
 class Kumanda():
-    def __init__(self,tvDurum = "Kapalı",tvSes = 0,tvKanal = "TRT",miktar = 0):
+    def __init__(self,tvDurum = "Kapalı",tvSes = 0,tvKanal = ["TRT", "Kanal D", "Show TV", "ATV", "FOX"],miktar = 0):
         self.tvDurum = tvDurum
         self.tvSes = tvSes
         self.tvKanal = tvKanal
@@ -23,6 +23,12 @@ class Kumanda():
         else:
             print("Ses seviyesi minimum")
 
+    def kanalSec(self):
+        self.kanalNo = int(input("Kanal No giriniz: "))
+        print("{} kanalı İzleniyor" .format(self.tvKanal[self.kanalNo - 1]))
+
+    def tvKapat(self):
+        self.tvDurum = "Kapalı"
 kumanda = Kumanda()
 
 while kumanda.tvDurum == "Kapalı":
@@ -34,16 +40,18 @@ while kumanda.tvDurum == "Kapalı":
         pass
 
 while kumanda.tvDurum == "Açık":
-    print("[1] Sesi Arttır"
-          "[2] Sesi Azalt"
-          "[3] Kanal Değiştir"
-          "[4] TV'yi Kapat" )
+    print("[1] Sesi Arttır\n"
+          "[2] Sesi Azalt\n"
+          "[3] Kanal Değiştir\n"
+          "[4] TV'yi Kapat\n" )
     secim = int(input(""))
     if secim == 1:
         kumanda.sesArttir()
     elif secim == 2:
         kumanda.sesAzalt()
     elif secim == 3:
-        pass
+        kumanda.kanalSec()
+    elif secim == 4:
+        kumanda.tvKapat()
 
 
