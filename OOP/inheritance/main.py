@@ -31,3 +31,4 @@ yonetici = Yonetici("Emir",5000,"IT",10)
 yonetici.zam_yap(31)
 
 yonetici.bilgilerigoster()
+
