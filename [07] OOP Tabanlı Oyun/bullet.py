@@ -8,11 +8,11 @@ class Bullet():
         self.width = width
         self.height = height
         self.screen = screen
-        self.Isfire = False
         self.bullets = []
+
     def create(self):
 
-          self.bullet = pygame.Rect(self.x,self.y,self.width,self.height)
+          self.bullet = pygame.Rect(self.x ,self.y,self.width,self.height)
           self.bullets.append(self.bullet)
     def fire(self):
        for bullet in self.bullets:
@@ -23,4 +23,4 @@ class Bullet():
     def draw(self):
         for bullet in self.bullets:
 
-              pygame.draw.rect(self.screen,(255,255,255),pygame.Rect(bullet[0],bullet[1],self.width,self.height))
+              pygame.draw.rect(self.screen,(255,255,255),pygame.Rect(bullet[0]+55,bullet[1],self.width,self.height))
