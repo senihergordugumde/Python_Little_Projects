@@ -11,6 +11,8 @@ class Blocks():
         self.width = width
         self.height = height
         self.add = 0
+        self.rect = pygame.Rect(self.x + self.add,self.y,5,5)
+
 
     def create(self):
         self.block = pygame.Rect(self.x + self.add,self.y,5,5)
@@ -19,7 +21,8 @@ class Blocks():
 
     def draw(self):
         for block in self.blocks:
-            pygame.draw.rect(self.screen,(255,0,0),pygame.Rect(block[0],block[1],self.width,self.height))
+            self.rect= pygame.draw.rect(self.screen,(255,0,0),pygame.Rect(block[0],block[1],self.width,self.height))
+
     def move(self):
         for block in self.blocks:
             block[1] += 15

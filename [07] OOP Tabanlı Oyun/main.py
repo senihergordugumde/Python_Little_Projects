@@ -8,14 +8,19 @@ class Main():
 
     def __init__(self):
 
+
         pygame.init()
+
         screen_width = 800
         screen = pygame.display.set_mode((screen_width, 800))
-        player1 = Player(150, 650, 150, 50, screen,1)
-        bullet = Bullet(player1.x, player1.y - 55, 6, 6, screen)
+        player1 = Player(150, 650, 30, 50, screen,1,"playerrect")
+        bullet = Bullet(player1.x, player1.y - 55, 18, 18, screen)
         block = Blocks(screen,5,5,15,12)
+
         for i in range(int(screen_width / block.width)):
             block.create()
+
+
         while True:
             screen.fill((0, 0, 0))
 
@@ -34,6 +39,7 @@ class Main():
                         bullet.create()
 
                         block.move()
+
                         for i in range(int(screen_width / block.width)):
                             block.create()
                         block.add = 0
@@ -44,6 +50,7 @@ class Main():
                             for i in range(int(screen_width / block.width)):
                                  block.create()
                             block.add = 0
+
 
 
 
@@ -61,6 +68,13 @@ class Main():
             bullet.draw()
             bullet.fire()
             block.draw()
+
+            for blo in block.blocks:
+                for bul in bullet.bullets:
+                    if bul.colliderect(blo):
+                        bullet.bullets.remove(bul)
+                        block.blocks.remove(blo)
+
 
             pygame.display.update()
 

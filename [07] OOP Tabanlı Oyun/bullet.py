@@ -1,5 +1,5 @@
 import pygame
-
+from blocks import *
 class Bullet():
 
     def __init__(self,x,y,width,height,screen):
@@ -9,6 +9,8 @@ class Bullet():
         self.height = height
         self.screen = screen
         self.bullets = []
+        self.rect = pygame.Rect(self.x ,self.y,self.width,self.height)
+
 
     def create(self):
 
@@ -20,7 +22,8 @@ class Bullet():
 
 
 
+
     def draw(self):
         for bullet in self.bullets:
 
-              pygame.draw.rect(self.screen,(255,255,255),pygame.Rect(bullet[0]+55,bullet[1],self.width,self.height))
+            self.rect=pygame.draw.rect(self.screen,(255,255,255),pygame.Rect(bullet[0],bullet[1],self.width,self.height))
