@@ -11,9 +11,9 @@ class Player():
         self.vel = vel
     def move(self):
         if self.right:
-            self.x += 1
+            self.x += self.vel
         if self.left:
-            self.x -= 1
+            self.x -= self.vel
 
     def draw(self):
         pygame.draw.rect(self.screen,(255,255,255),pygame.Rect(self.x,self.y,self.width,self.height))
