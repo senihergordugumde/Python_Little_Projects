@@ -1,13 +1,9 @@
 import pygame
 from blocks import *
-class Bullet():
+class Bullet(Blocks):
 
-    def __init__(self,x,y,width,height,screen):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.screen = screen
+    def __init__(self,screen,x,y,width,height):
+        super().__init__(screen,x,y,width,height)
         self.bullets = []
         self.rect = pygame.Rect(self.x ,self.y,self.width,self.height)
 
